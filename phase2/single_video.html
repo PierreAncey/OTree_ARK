@@ -1,0 +1,65 @@
+{{ block title }}{{ video_letters }} video{{ endblock }}
+{{ block content }}
+
+
+          <div class="video-container"> 
+            <video 
+                autoplay 
+                src="{{ video }}" 
+                class="full-screen" 
+                type="video/mp4" 
+                id="vid" 
+                disablepictureinpicture 
+                controlsList="nodownload noremoteplayback noplaybackrate">
+            </video>
+        </div>
+
+    <button id="next-button" class="otree-btn-next btn btn-primary">Next</button>
+
+  <style>
+    #next-button {
+      display: none;
+    }
+    
+    .full-screen {
+      height: 80vh;
+    }
+
+    .otree-title{
+      margin-top: -10px;
+      font-size: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .otree-body {
+      margin: auto;
+      text-align: justify;
+      max-width: 80%;  /* Adjust this value as needed */
+    }
+
+    .video-container video {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .video-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+  <script> 
+    const video = document.getElementById('vid');
+    const nextButton = document.getElementById('next-button');
+
+    video.addEventListener('ended', () => {
+      nextButton.click();
+      console.log('video ended');
+    });
+  </script>
+
+
+{{ endblock }}

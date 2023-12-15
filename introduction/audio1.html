@@ -1,0 +1,37 @@
+{{ block title }}Audio Test{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    <br>
+    <br>
+
+    We thank you for participating in this study. Before we begin, let's check if you can hear the following sound properly. Plug in your headphones or speakers to listen to the recording. 
+
+    <br>
+    <br>
+
+    You have 30 seconds to answer the question. You can listen to the recording as many times as you'd like.
+
+    <br>
+    <br>
+    <br>
+
+    <div class="controls">
+
+        <audio controls> 
+            <source src="{{ static 'audio/12645_en.mp3' }}" type="audio/mpeg"> 
+        </audio> 
+
+        <br>
+        <br>
+
+        {{ formfields }}
+
+    </div>
+
+    <br>
+    <br>
+
+    {{ next_button }}
+
+{{ endblock }}

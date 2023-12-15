@@ -1,0 +1,79 @@
+/* Général */
+.instructions {
+    font-size: 20px;
+    margin-bottom: 50px;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    padding: 8px;
+    display: inline-block
+}
+.b20 {
+    margin-bottom: 20px;
+}
+.b50 {
+    margin-bottom: 50px;
+}
+.b100 {
+    margin-bottom: 100px;
+}
+.otree-form-errors{
+    text-align: center;
+    font-size: 20px;
+}
+.otree-body {
+    margin: auto;
+    text-align: justify;
+    max-width: 800px;  /* Adjust this value as needed */
+}
+._formfield{
+    text-align: center;
+}
+.form-control{
+    text-align: center;
+}
+.otree-title{
+    margin-top: -10px;
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.otree-btn-next{
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+}
+.texte{
+    text-align: center;
+}
+.error{
+    font-size: 20px;
+    text-align: center;
+}
+.controls {
+    display: grid;
+    place-items: center;
+}
+.col-form-label{
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Pour les vidéos */
+.video-field{
+    margin-top: 10px;
+    max-width: 160px;
+    margin-bottom: 80px;
+}
+.video-title{
+    margin-bottom: 20px;
+}
+video::-webkit-media-controls-timeline {
+    display: none;
+}
+.full-screen{
+    width: 100%;
+    height: auto;
+}

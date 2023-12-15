@@ -1,0 +1,101 @@
+{{ block title }}Watch the videos again{{ endblock }}
+{{ block content }}
+
+  <link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+  <br>
+  <br>
+
+  <b>Instructions:</b> Please watch the six videos and fill the fields with the following constraints in mind:
+
+  <br>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-xl-6 texte">
+        <ul style="text-align: left;">
+            <li>You have exactly CHF20 (approx. £18) to invest.</li>
+            <li>Assign an integer value between 0 and 20 to indicate the amount of money you would invest in each of the videos.</li>
+            <li>You must invest all your money.</li>
+            <li>You can choose at least one video and at most three videos to give money to.</li>
+        </ul>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+
+  <!-- <script>
+    names = [folder_id.toString() + "/0.mp4", "" +folder_id.toString() + "/1.mp4", "" +folder_id.toString() + "/2.mp4", "" +folder_id.toString() + "/3.mp4", "" +folder_id.toString() + "/4.mp4", "" +folder_id.toString() + "/5.mp4"]
+
+    for (i = 0; i < 6; i++) {
+      document.getElementById("vid" + i.toString()).src = names[i]
+    }
+
+  </script> -->
+
+
+    <div class="container">
+        <div id="row" class="row justify-content-center">
+          <div class="col-auto"> 
+            <div class="video-title">Video 1:</div> 
+            <div><video controls src="{{ vid0 }}" width="320" height="240" type="video/mp4" id="vid0" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            <!-- <button onclick="playVid()" type="button">Play Video</button>
+            <button onclick="pauseVid()" type="button">Pause Video</button><br> 
+            
+              var vid = document.getElementById("vid"); 
+
+            function playVid() { 
+              vid.play(); 
+            } 
+
+            function pauseVid() { 
+              vid.pause(); 
+            } 
+
+          </script>
+          </div> -->
+            {{formfield 'input_video_0'}}
+            {{formfield_errors 'input_video_0'}}
+          </div>
+          <div class="col-auto"> 
+            <div class="video-title">Video 2:</div> 
+            <div><video controls src="{{ vid1 }}" width="320" height="240" type="video/mp4" id="vid1" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            {{formfield 'input_video_1'}}
+            {{formfield_errors 'input_video_1'}}
+          </div>
+          <div class="col-auto"> 
+            <div class="video-title">Video 3:</div> 
+            <div><video controls src="{{ vid2 }}" width="320" height="240" type="video/mp4" id="vid2" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            {{formfield 'input_video_2'}}
+            {{formfield_errors 'input_video_2'}}
+          </div>
+          <div class="col-auto"> 
+            <div class="video-title">Video 4:</div> 
+            <div><video controls src="{{ vid3 }}" width="320" height="240" type="video/mp4" id="vid3" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            {{formfield 'input_video_3'}}
+            {{formfield_errors 'input_video_3'}}
+          </div>
+          <div class="col-auto"> 
+            <div class="video-title">Video 5:</div> 
+            <div><video controls src="{{ vid4 }}" width="320" height="240" type="video/mp4" id="vid4" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            {{formfield 'input_video_4'}}
+            {{formfield_errors 'input_video_4'}}
+          </div>
+          <div class="col-auto"> 
+            <div class="video-title">Video 6:</div> 
+            <div><video controls src="{{ vid5 }}" width="320" height="240" type="video/mp4" id="vid5" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            {{formfield 'input_video_5'}}
+            {{formfield_errors 'input_video_5'}}
+          </div>
+        </div>
+      </div>
+
+    <br>
+    <br>
+
+    {{ next_button }}
+
+{{ endblock }}

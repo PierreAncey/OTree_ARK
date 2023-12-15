@@ -1,0 +1,104 @@
+{{ block title }}{{ video_letters }} video{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    <br>
+    <br>
+
+    <div class="texte" style="align-items: center;"><b>Instructions:</b> Based on the videos you have seen. Please grade the perceived age, ethnicity, gender, likability and expressiveness below.</div> 
+    <br>
+    <div class="texte" style="align-items: center;"><b>Reminder:</b>  click on the blue bars to reveal the sliders</div>
+        
+    <br>
+    <br>
+
+    <style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+    <div class="container">
+        <div id="row" class="row justify-content-center">
+            <div class="col-auto"> 
+                <img src="{{ img }}" class="full-screen" id="img">
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    {{ formfield_errors 'temp_perceived_age' }}
+
+    <div class="col-form-label">What is the perceived age of the person?</div>
+    <div id="slider_age"></div>
+    
+    <br>
+    <br>
+    
+    {{ formfield 'temp_ethnicity' }}
+    
+    <br>
+    <br>
+    
+    {{ formfield 'temp_gender' }}
+    
+    <br>
+    <br>
+    
+    {{ formfield_errors 'temp_likability' }}
+
+    <div class="col-form-label">What is the perceived likability of the person?</div>
+    <div id="slider_likability"></div>
+    
+    <br>
+    <br>
+    
+    {{ formfield_errors 'temp_expressiveness' }}
+
+    <div class="col-form-label">What is the perceived expressiveness of the person?</div>
+    <div id="slider_expressiveness"></div>
+    
+    <br>
+    <br>
+    
+    {{ next_button }}
+    
+    <script src="{{ static 'global/mgslider.js' }}"></script>
+    <script>
+        $(document).ready(function (event) {
+            slider1 = new mgslider("temp_perceived_age", 18, 60, 1);
+            slider1.print(document.getElementById("slider_age"));
+
+            slider2 = new mgslider("temp_likability", 1, 7, 1);
+            slider2.print(document.getElementById("slider_likability"));
+
+            slider3 = new mgslider("temp_expressiveness", 1, 7, 1);
+            slider3.print(document.getElementById("slider_expressiveness"));
+        });
+    </script>
+
+{{ endblock }}

@@ -1,0 +1,15 @@
+{{ block title }}Étude Matthieu{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    <div class="instructions">
+        Veuillez répondre aux questions suivantes:
+    </div>
+    
+    <div>
+        {{ formfields }}
+    </div>
+
+    {{ next_button }}
+
+{{ endblock }}

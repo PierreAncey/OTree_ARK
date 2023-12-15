@@ -1,0 +1,30 @@
+{{ block title }}Captcha{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    <script> function enableBtn(){
+      document.getElementById("next-button").disabled = false;
+    }</script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+
+    <br>
+    <br>
+
+    <div class="controls b50">
+        <p>Before continuing, we need to make sure that you are not a robot. Please complete the CAPTCHA below.</p>
+
+        <br>
+        <br>
+
+      <div class="g-recaptcha" data-callback="enableBtn" data-sitekey="6LfFPkAkAAAAAOx0zGGBnt-FaF1fLfGpbeak3-vU"></div>
+
+        <br>
+        <br>
+
+    </div>
+    
+
+    <button id="next-button" class="otree-btn-next btn btn-primary" disabled>Next</button>
+
+
+{{ endblock }}

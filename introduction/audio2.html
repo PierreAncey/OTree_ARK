@@ -1,0 +1,37 @@
+{{ block title }}Incorrect!{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    <br>
+    <br>
+
+    It seems that the selected response is not correct. Let's verify again that you can hear the following sound properly.
+
+    <br>
+    <br>
+
+    You have 30 seconds to answer the question. You can listen to the recording as many times as you like.
+
+    <br>
+    <br>
+    <br>
+
+    <div class="controls">
+
+        <audio controls> 
+            <source src="{{ static 'audio/31782_en.mp3' }}" type="audio/mpeg"> 
+        </audio> 
+
+        <br>
+        <br>
+
+        {{ formfields }}
+
+    </div>
+
+    <br>
+    <br>
+
+    {{ next_button }}
+
+{{ endblock }}

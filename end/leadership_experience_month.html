@@ -1,0 +1,59 @@
+{{ block title }}Question{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    <br>
+    <br>
+
+    <div class="texte" style="align-items: center;"><b>Instructions:</b> click on the blue bars to reveal the sliders</div>
+
+    <br>
+    <br>
+
+    <style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+    {{ formfield_errors 'leadership_experience_month' }}
+
+    <div class="col-form-label">How many months of previous experience in leadership positions (e.g., at work, sport, student union) did you have?</div>
+    <div id="sliders_here"></div>
+    <script src="{{ static 'global/mgslider.js' }}"></script>
+
+    <script>
+        $(document).ready(function (event) {
+            slider1 = new mgslider("leadership_experience_month", 0, 120, 1);
+            slider1.print(document.getElementById("sliders_here"));
+        });
+    </script>
+
+    <br>
+    <br>
+
+    {{ next_button }}
+
+{{ endblock }}

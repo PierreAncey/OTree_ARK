@@ -1,0 +1,86 @@
+{{ block title }}Audio Test{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+
+    Thank you for taking part in this study. Before we begin, let's make sure you can hear the following sound. Plug in your headphones or speakers to hear the recording.
+    <br>
+    <br>
+    You have 30 seconds to answer the question. You can listen to the recording as many times as you like.
+
+    <div class="controls b50" id="div1">
+
+        <audio controls class="b20"> 
+            <source src="{{ static 'laugh.mp3' }}" type="audio/mpeg"> 
+        </audio> 
+        In the previous recording, I heard the following sequence of numbers:
+        <input type="text" class="form-control b20" id="t1" placeholder="Type the action you heard..."> 
+        <button class="btn btn-primary b20" type="button" id="b1" onclick="myFunction()"> Validate Answer </button> 
+        <div id="r1"></div>
+    </div>
+
+
+    <div class="controls b50" id="div2"></div>
+
+    <div class="controls b50" id="div3"></div>
+
+    <script>
+    var result1, result2, result3 = 0;
+
+    function enableBtn(){
+      document.getElementById("next-button").disabled = false;
+
+      liveSend({'a1': parseInt(result1), 'a2': parseInt(result2), 'a3': parseInt(result3)})
+    }
+
+    function myFunction() {
+        var answer1 = document.getElementById('t1').value;
+        if (answer1 == "laugh"){
+            result1 = 1;
+            document.getElementById("r1").innerHTML = "Your answer is correct !";
+            document.getElementById("b1").disabled = true;
+            enableBtn()
+        } else {
+            result1 = 0
+            document.getElementById("t1").disabled = true;
+            document.getElementById("b1").disabled = true;
+            document.getElementById("r1").innerHTML = "Your answer is incorrect !";
+            document.getElementById("div2").innerHTML = `<p>Try again:</p><audio controls class="b20"> <source src="{{ static 'laugh.mp3' }}" type="audio/mpeg"> </audio> <input type="text" class="form-control b20" id="t2" placeholder="Type the action you heard..."> <button class="btn btn-primary b20" type="button" id="b2" onclick="myFunction2()"> Validate Answer </button> <div id="r2"></div>`;
+        }
+    }
+
+    function myFunction2() {
+        var answer2 = document.getElementById('t2').value;
+        if (answer2 == "laugh"){
+            result2 = 1;
+            document.getElementById("r2").innerHTML = "Your answer is correct !";
+            document.getElementById("b2").disabled = true;
+            enableBtn()
+        } else {
+            result2 = 0;
+            document.getElementById("t2").disabled = true;
+            document.getElementById("b2").disabled = true;
+            document.getElementById("r2").innerHTML = "Your answer is incorrect !";
+            document.getElementById("div3").innerHTML = `<p>Try again:</p><audio controls class="b20"> <source src="{{ static 'laugh.mp3' }}" type="audio/mpeg"> </audio> <input type="text" class="form-control b20" id="t3" placeholder="Type the action you heard..."> <button class="btn btn-primary b20" type="button" id="b3" onclick="myFunction3()"> Validate Answer </button> <div id="r3"></div>`;
+        }
+    }
+
+    function myFunction3() {
+        var answer3 = document.getElementById('t3').value;
+        if (answer3 == "laugh"){
+            result3 = 1;
+            document.getElementById("r3").innerHTML = "Your answer is correct !";
+            document.getElementById("b3").disabled = true;
+            enableBtn()
+        } else {
+            result3 = 0;
+            document.getElementById("t3").disabled = true;
+            document.getElementById("b3").disabled = true;
+            document.getElementById("r3").innerHTML = "Your answer is incorrect ! You were wrong 3 times, please fix your audio settings and try again.";
+        }  
+    }
+    </script>
+
+    <button id="next-button" class="otree-btn-next btn btn-primary" disabled>Next</button>
+
+
+{{ endblock }}

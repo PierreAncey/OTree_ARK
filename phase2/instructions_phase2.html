@@ -1,0 +1,78 @@
+{{ block title }}Phase 2{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+<div class="container speech-instructions">
+
+    <br>
+    <br>
+
+    Thanks to the example of these 6 questions, you now know the type of questions participants had to respond to.
+
+    <br>
+    <br>
+
+    Before going on to the 60 questions of the game, participants provided a brief speech about their future performance in the 60 questions of the game. The voices and movements of the participants giving the speeches were recorded. To preserve the anonymity of the participants, these voices and movements were transferred to avatars.
+
+    <br>
+    <br>
+
+    You now have the opportunity to watch 6 speeches and decide how you will distribute the CHF20 that will be given to you. It is crucial to listen carefully to the speeches because your bonus payment depends on the performances in the game of the six individuals who delivered these speeches. The more money you allocate to a person who performed well in the game, the higher your bonus will be. The calculation is done according to the following method:
+    
+    <br>
+    <br>
+
+    <style>
+        .speech-instructions {
+            max-width: 800px;  /* Adjust this value as needed */
+            margin: auto;      /* This centers the container */
+        }
+
+        .speech-instructions p{
+            margin: 0 auto;    /* Apply any specific margin/padding as needed */
+        }
+        .speech-instructions ul {
+            margin: 0 auto;    /* Apply any specific margin/padding as needed */
+            text-align: left;
+        }
+    </style>
+
+    <!-- <div class="container speech-instructions"> -->
+        <ul >
+            <li>The proportion invested per speech is calculated with the formula Pi = xi ÷ 20, where xi is the amount allocated to speech i, and 20 is the total money at your disposal.</li>
+            <li>The game performance of the person giving the speech is extracted from the database and will be denoted as bi.</li>
+            <li>The final formula is applied:
+                Bonus payment = 0.5 × [P1×b1 + P2×b2 + P3×b3].</li>
+        </ul>
+    <!-- </div> -->
+
+    <br>
+
+    For example, if you invest the entire CHF20 in a single person who answered 28 questions correctly, your bonus will be 0.5 × (20 ÷ 20) × 28 = 14. Your bonus payment will be CHF14.
+
+    <br>
+    
+    If you invest CHF10 in a person with a score of 36 and CHF10 in a second person with a score of 8, your bonus will be 0.5 × [(10 ÷ 20) × 36 + (10 ÷ 20) × 8] = 11. Your bonus payment will be CHF11.
+
+    <br>
+
+    If you invest CHF4 in a person with a score of 40, CHF11 in a second person with a score of 21, and CHF5 in a third person with a score of 10, your bonus will be 0.5 × [(4 ÷ 20) × 40 + (11 ÷ 20) × 21 + (5 ÷ 20) × 10] = 11.025. Your bonus payment will be CHF11.05.
+
+    <br>
+    <br>
+
+    To ensure the instructions are understood, please answer the comprehension question below.
+
+    <br>
+    <br>
+    <br>
+
+    {{ formfields }}
+    
+    <br>
+    <br>
+
+    {{ next_button }}
+
+    </div>
+
+{{ endblock }}

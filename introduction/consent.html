@@ -1,0 +1,189 @@
+{{ block title }}Consent form{{ endblock }}
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+    <div class="container">
+
+        <br>
+        <br>
+
+        <h3>1. The study</h3>
+        <br>
+
+        You are invited to participate in a study on economic decisions. We greatly appreciate your participation. This study is conducted by Matthieu Jost, Marianne Schmid Mast from the University of Lausanne, and Gwendolin Sajons from ESCP Berlin.
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h3>2. Outline of the study procedure</h3>
+        <br>
+
+        If you agree to participate, we ask you to accomplish two tasks.
+
+        <br>
+        <br>
+
+        <!-- Align the section to be centered, but align the text to the left. -->
+        <div class="row justify-content-center">
+            <div class="col-xl-6 texte">
+                <ul style="text-align: left;">
+                    <li>First, you will watch 6 videos.</li>
+                    <li>Second, you will take a decision based on the six videos.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <br>
+
+        You will need about 30 minutes to complete the study.
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h3>3. Remuneration</h3>
+        <br>
+
+        At the end of the study, you will be remunerated in the following way:
+
+        <br>
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-xl-6 texte">
+                <ul style="text-align: left;">
+                    <li>You will be awarded <b>£3</b> for your participation..</li>
+                    <li>You may earn an additional bonus that will depend on your decision. This bonus may vary between <b>£0</b> à <b>£27</b>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+
+
+        The total amount you will receive will thus be between <b>£3</b> and <b>£30</b>.
+        
+        <br>
+        <br>
+
+        <div class="instructions">
+            <!-- Color text red and make it bigger -->
+            <div class="row justify-content-center">
+                <div class="col-xl-6 texte">
+                    <p style="color: red; font-size: 20px;">
+                        Please note that we will check whether you have access to the audio of your device, and the comprehension of the task. If you fail either of the checks, your participation will be cancelled, and you will receive <b>£0</b>. The checks will be at the beginning of the study.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+
+        <h3>4. Confidentiality and data processing</h3>
+        <br>
+
+        Your answers will be recorded by Matthieu Jost of HEC Lausanne, University of Lausanne, in a confidential and secure way.
+
+        <br>
+        <br>
+
+        During this study, no personally identifiable information will be collected. Your participation in this study is anonymous.
+        
+        <br>
+        <br>
+
+        The confidentiality of the data is guaranteed.
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h3>5. Your rights</h3>
+        <br>
+
+        Your participation is completely voluntary and you are completely free to stop the study at any time, without notice. In case you stop, you will receive <b>£0</b> and the data you have provided will be deleted.
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h3>6. Participation conditions to the study</h3>
+        <br>
+
+        By signing this form, you acknowledge that you have read the above information and that you agree to it.
+
+        <br>
+        <br>
+
+        <div class="controls b50">
+            <!-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="myCheck" onclick="enableBtn()">
+                <label class="form-check-label" for="flexCheckDefault">
+                I agree to participate
+                </label>
+            </div> -->
+            <span>
+                <label>
+                    <input type="checkbox" id="agreeCheckbox" name="consent" value="False" onclick="checkboxChanged(this)">
+                    I agree to participate
+                </label>
+
+                <span style="margin-left: 10px; margin-right: 10px;"> </span>
+                
+                <label>
+                    <input type="checkbox" id="refuseCheckbox" name="consent" value="False" onclick="checkboxChanged(this)">
+                    I refuse to participate
+                </label>   
+            </span>           
+        </div>
+
+    </div>
+
+
+
+    <script> 
+        function enableBtn(){
+            var checkBox = document.getElementById("myCheck");
+
+            if (checkBox.checked == true){
+                document.getElementById("next-button").disabled = false;
+            } else {
+                document.getElementById("next-button").disabled = true;
+            }
+        }
+
+        function checkboxChanged(clickedCheckbox) {
+            var agreeCheckbox = document.getElementById('agreeCheckbox');
+            var refuseCheckbox = document.getElementById('refuseCheckbox');
+
+            // Reactivate the button if one of the checkboxes is checked
+            if (agreeCheckbox.checked || refuseCheckbox.checked) {
+                document.getElementById("next-button").disabled = false;
+            } else {
+                document.getElementById("next-button").disabled = true;
+            }
+
+            // Uncheck the other checkbox
+            if (clickedCheckbox.id === 'agreeCheckbox') {
+                refuseCheckbox.checked = false;
+            } else if (clickedCheckbox.id === 'refuseCheckbox') {
+                agreeCheckbox.checked = false;
+            }
+
+            // Prepare the data to send
+            var consentGiven = agreeCheckbox.checked ? true : false;
+
+            // Use oTree's liveSend to send the data to the server
+            liveSend({'was_consent_given': consentGiven});
+        }
+    </script>
+
+    <button id="next-button" class="otree-btn-next btn btn-primary" disabled>Next</button>
+
+{{ endblock }}
