@@ -88,6 +88,9 @@ class Player(BasePlayer):
 
     # Folder id
     folder_id = models.IntegerField(initial=0)
+
+    # did multiple videos time out?
+    did_multiple_videos_timeout = models.BooleanField(initial=False)
     
 
 # PAGES
@@ -122,6 +125,11 @@ class Videos(Page):
             vid4='https://hecxpvr.unil.ch/arc/{}/4.mp4'.format(player.folder_id),
             vid5='https://hecxpvr.unil.ch/arc/{}/5.mp4'.format(player.folder_id),
         )
+    
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        if timeout_happened:
+            player.did_multiple_videos_timeout = True
         
 def create_video_page_class(video_number):
     number_to_letter = {

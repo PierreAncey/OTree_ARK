@@ -6,7 +6,7 @@
   <br>
   <br>
 
-  <b>Instructions:</b> Please watch the six videos and fill the fields with the following constraints in mind:
+  <b>Instructions:</b> You now have 20 minutes at your disposal to watch one or more of these videos as many times as you like. Decide then how you will invest the CHF20 (approx. £18). Fill the fileds with the following constraints in mind:
 
   <br>
   <br>
@@ -17,10 +17,14 @@
             <li>You have exactly CHF20 (approx. £18) to invest.</li>
             <li>Assign an integer value between 0 and 20 to indicate the amount of money you would invest in each of the videos.</li>
             <li>You must invest all your money.</li>
-            <li>You can choose at least one video and at most three videos to give money to.</li>
+            <li>You must choose at least one video and at most three videos to give money to.</li>
         </ul>
     </div>
   </div>
+
+  <br>
+
+  If you are finished before the end of the timer, click on next. At the end of the timer, you will be automatically moved on to the last part of the questionnaire. 
 
   <br>
   <br>
@@ -41,7 +45,9 @@
         <div id="row" class="row justify-content-center">
           <div class="col-auto"> 
             <div class="video-title">Video 1:</div> 
-            <div><video controls src="{{ vid0 }}" width="320" height="240" type="video/mp4" id="vid0" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate"/></div>
+            <div><video controls width="320" height="240" id="vid0" disablepictureinpicture controlsList="nodownload noremoteplayback noplaybackrate">
+              <source src="{{ vid0 }}" type="video/mp4">
+            </video></div>
             <!-- <button onclick="playVid()" type="button">Play Video</button>
             <button onclick="pauseVid()" type="button">Pause Video</button><br> 
             

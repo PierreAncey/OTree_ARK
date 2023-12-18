@@ -61,7 +61,7 @@ class Player(BasePlayer):
     # Temp variables for the bias survey
     temp_perceived_age = models.IntegerField()
     temp_ethnicity =  models.StringField(label="What is the ethnicity of the person in the video?", choices=['White', 'Black', 'Asian', 'Other'], widget=widgets.RadioSelect())
-    temp_gender = models.StringField(label="What is the gender of the person in the video?", choices=['Man', 'Woman', 'Other'], widget=widgets.RadioSelect())
+    temp_gender = models.StringField(label="What is the gender of the person in the video?", choices=['Man', 'Woman'], widget=widgets.RadioSelect())
     temp_likability = models.IntegerField()
     temp_expressiveness = models.IntegerField()
 
@@ -80,7 +80,7 @@ for i in range(6):
     setattr(Player, ethnicity_vid, models.StringField(label="What is the ethnicity of the person in the video?", choices=['White', 'Black', 'Asian', 'Other'], widget=widgets.RadioSelect()))
 
     gender_vid = f'gender_vid{i}'
-    setattr(Player, gender_vid, models.StringField(label="What is the gender of the person in the video?", choices=['Man', 'Woman', 'Other'], widget=widgets.RadioSelect()))
+    setattr(Player, gender_vid, models.StringField(label="What is the gender of the person in the video?", choices=['Man', 'Woman'], widget=widgets.RadioSelect()))
 
     likability_vid = f'likability_vid{i}'
     setattr(Player, likability_vid, models.IntegerField())

@@ -1,11 +1,11 @@
 {{ block title }}{{ video_letters }} video{{ endblock }}
 {{ block content }}
-<link rel="stylesheet" href="{{ static 'global/style.css' }}">
+<!-- <link rel="stylesheet" href="{{ static 'global/style.css' }}"> -->
 
     <br>
     <br>
 
-    <div class="texte" style="align-items: center;"><b>Instructions:</b> Based on the videos you have seen. Please grade the perceived age, ethnicity, gender, likability and expressiveness below.</div> 
+    <div class="texte" style="align-items: center;"><b>Instructions:</b> Based on the videos you have seen, please rate the perceived age, ethnicity, gender, likability and expressiveness below.</div> 
     <br>
     <div class="texte" style="align-items: center;"><b>Reminder:</b>  click on the blue bars to reveal the sliders</div>
         
@@ -38,14 +38,56 @@
             -ms-user-select: none;
             user-select: none;
         }
+        .full-screen {
+            height: 80vh;
+        }
+        .img-container img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .img-container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .otree-title{
+            margin-top: -10px;
+            font-size: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .otree-body {
+            margin: auto;
+            text-align: center;
+            max-width: 80%;  /* Adjust this value as needed */
+        }
+        ._formfield{
+            text-align: center;
+        }
+        .form-control{
+            text-align: center;
+        }
+        .col-form-label{
+            font-size: 18px;
+            text-align: center;
+        }
+        .otree-btn-next{
+            position: absolute;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, 0);
+        }
+        .controls {
+            display: grid;
+            place-items: center;
+        }
     </style>
 
-    <div class="container">
-        <div id="row" class="row justify-content-center">
-            <div class="col-auto"> 
-                <img src="{{ img }}" class="full-screen" id="img">
-            </div>
-        </div>
+    <div class="img-container">
+        <img src="{{ img }}" class="full-screen" id="img">
     </div>
 
     <br>
@@ -71,7 +113,7 @@
     
     {{ formfield_errors 'temp_likability' }}
 
-    <div class="col-form-label">What is the perceived likability of the person?</div>
+    <div class="col-form-label">The person is likable:<br>(1 = strongly disagree, 7 = strongly agree)</div>
     <div id="slider_likability"></div>
     
     <br>
@@ -79,7 +121,7 @@
     
     {{ formfield_errors 'temp_expressiveness' }}
 
-    <div class="col-form-label">What is the perceived expressiveness of the person?</div>
+    <div class="col-form-label">The person is expressive:<br>(1 = strongly disagree, 7 = strongly agree)</div>
     <div id="slider_expressiveness"></div>
     
     <br>
@@ -90,7 +132,7 @@
     <script src="{{ static 'global/mgslider.js' }}"></script>
     <script>
         $(document).ready(function (event) {
-            slider1 = new mgslider("temp_perceived_age", 18, 60, 1);
+            slider1 = new mgslider("temp_perceived_age", 18, 100, 1);
             slider1.print(document.getElementById("slider_age"));
 
             slider2 = new mgslider("temp_likability", 1, 7, 1);

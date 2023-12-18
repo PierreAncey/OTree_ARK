@@ -9,8 +9,19 @@
 
     <br>
     <br>
-    
-    <a href="url" target="_blank">https://app.prolific.com/submissions/complete?cc=CAUGN5MU</a>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <!-- Button with Bootstrap classes -->
+            <div class="col-auto"> 
+                <button class="btn btn-primary" onclick="openProlificLink()">Complete on Prolific</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openProlificLink() {
+            window.open('https://app.prolific.com/submissions/complete?cc=CAUGN5MU');
+        }
+    </script>
 
 {{ endblock }}
 
