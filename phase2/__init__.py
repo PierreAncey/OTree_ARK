@@ -214,7 +214,7 @@ class Correct(Page):
         import psycopg2
 
         # Change the string
-        conn = psycopg2.connect("host=localhost dbname=test user=postgres password=pierro")
+        conn = psycopg2.connect("host=localhost dbname=ark user=ark_user password=arkanaut")
 
         # Modify the database
         cur = conn.cursor()
